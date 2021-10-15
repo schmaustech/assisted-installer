@@ -1,0 +1,16 @@
+---
+apiVersion: agent-install.openshift.io/v1beta1 
+kind: InfraEnv
+metadata:
+  name: test-cluster-virtual-infraenv
+  namespace: assisted-installer
+spec:
+  clusterRef:
+    name: test-cluster-virtual
+    namespace: assisted-installer
+  sshAuthorizedKey: 'REDACTED SSH KEY'
+  agentLabelSelector:
+    matchLabels:
+      bla: aaa
+  pullSecretRef:
+    name: assisted-deployment-pull-secret
