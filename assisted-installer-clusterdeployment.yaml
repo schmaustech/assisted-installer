@@ -1,0 +1,24 @@
+---
+apiVersion: hive.openshift.io/v1
+kind: ClusterDeployment
+metadata:
+  name: test-cluster-virtual
+  namespace: assisted-installer
+spec:
+  baseDomain: schmaustech.com
+  clusterName: kni3
+  controlPlaneConfig:
+    servingCertificates: {}
+  installed: false
+  clusterInstallRef:
+    group: extensions.hive.openshift.io
+    kind: AgentClusterInstall
+    name: test-cluster-virtual-aci
+    version: v1beta1
+  platform:
+    agentBareMetal: 
+      agentSelector:
+        matchLabels:
+          bla: "aaa"
+  pullSecretRef:
+    name: assisted-deployment-pull-secret
